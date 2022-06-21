@@ -1,0 +1,20 @@
+---
+title: "Test Reading CSV files from Garmin"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(here)
+```
+
+# Read the CSV Data
+
+```{r}
+
+df <- list.files(here::here("data"), pattern = "*.csv", full.names = TRUE)%>% 
+  lapply(read_csv) %>% 
+  bind_rows 
+  
+```
+
